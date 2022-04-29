@@ -5,4 +5,14 @@
 //  Created by Borislav on 29.04.22.
 //
 
-import Foundation
+import UIKit
+
+class NewGameViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .red
+        // Do any additional setup after loading the view.
+    }
+    
+}

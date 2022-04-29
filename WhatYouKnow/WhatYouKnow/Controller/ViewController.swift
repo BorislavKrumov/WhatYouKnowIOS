@@ -15,18 +15,13 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     @IBAction func newGame() {
-        present(newGameViewController(), animated: true)
+        let newGame = NewGameViewController()
+        newGame.modalPresentationStyle = .overFullScreen
+        present(newGame, animated: true)
+        
+        
+        
     }
 
 }
 
-class newGameViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .red
-        // Do any additional setup after loading the view.
-    }
-
-
-}
