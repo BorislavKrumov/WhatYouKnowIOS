@@ -14,14 +14,14 @@ class ViewController: UIViewController {
         view.backgroundColor = .blue
         // Do any additional setup after loading the view.
     }
-    @IBAction func newGame() {
-        let newGame = NewGameViewController()
-        newGame.modalPresentationStyle = .overFullScreen
-        present(newGame, animated: true)
-        
-        
-        
-    }
+//    @IBAction func newGame() {
+//        let newGame = NewGameViewController()
+//        newGame.modalPresentationStyle = .overFullScreen
+//        present(newGame, animated: true)
+//
+//
+//
+//    }
 
 }
 
