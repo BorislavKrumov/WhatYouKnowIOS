@@ -8,24 +8,22 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Game Over View Controller-->
+        <!--GameOverViewController-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="GameOverViewController" customModule="WhatYouKnow" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameOver" title="GameOverViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="GameOverViewController" customModule="WhatYouKnow" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Game Over" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yEx-VF-6UT">
-                                <rect key="frame" x="139" y="257" width="137" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Over" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yEx-VF-6UT">
+                                <rect key="frame" x="139" y="259" width="137" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tcj-CB-WAr">
-                                <rect key="frame" x="20" y="432" width="374" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tcj-CB-WAr">
+                                <rect key="frame" x="20" y="434" width="374" height="31"/>
                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Home">
@@ -35,8 +33,8 @@
                                     <segue destination="ust-8p-dma" kind="showDetail" id="9ew-98-iYR"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X15-TC-Iot">
-                                <rect key="frame" x="20" y="373" width="374" height="33"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X15-TC-Iot">
+                                <rect key="frame" x="20" y="375" width="374" height="33"/>
                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="X15-TC-Iot" secondAttribute="height" multiplier="34:3" id="sbr-iS-0HX"/>
@@ -52,6 +50,20 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemCyanColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="X15-TC-Iot" secondAttribute="trailing" constant="20" id="1rc-Zc-o0X"/>
+                            <constraint firstItem="X15-TC-Iot" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="3Ye-2M-W1S"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="tcj-CB-WAr" secondAttribute="bottom" constant="397" id="5r3-Ae-nYF"/>
+                            <constraint firstItem="X15-TC-Iot" firstAttribute="top" secondItem="yEx-VF-6UT" secondAttribute="bottom" constant="82" id="DkA-BY-qiJ"/>
+                            <constraint firstItem="yEx-VF-6UT" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="215" id="QqQ-ug-pAW"/>
+                            <constraint firstItem="X15-TC-Iot" firstAttribute="top" secondItem="yEx-VF-6UT" secondAttribute="bottom" constant="82" id="SVe-bk-3En"/>
+                            <constraint firstItem="tcj-CB-WAr" firstAttribute="top" secondItem="X15-TC-Iot" secondAttribute="bottom" constant="26" id="SWE-8x-E3K"/>
+                            <constraint firstItem="tcj-CB-WAr" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="dHp-Gg-r52"/>
+                            <constraint firstItem="yEx-VF-6UT" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="139" id="f9o-um-7Ui"/>
+                            <constraint firstItem="tcj-CB-WAr" firstAttribute="top" secondItem="X15-TC-Iot" secondAttribute="bottom" constant="26" id="pww-JU-SHY"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="tcj-CB-WAr" secondAttribute="trailing" constant="20" id="svh-Qp-Ltt"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="yEx-VF-6UT" secondAttribute="trailing" constant="138" id="vvb-gg-WFB"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
