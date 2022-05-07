@@ -19,24 +19,27 @@ class NewGameViewController: UIViewController {
     @IBOutlet weak var btnCallPublic: UIButton!
     @IBOutlet weak var btnCallFriend: UIButton!
     @IBOutlet weak var btnFiftyFifty: UIButton!
-    
-    @IBOutlet weak var labelPossibility1: UILabel!
-    @IBOutlet weak var labelPossibility2: UILabel!
-    @IBOutlet weak var labelPossibility3: UILabel!
-    @IBOutlet weak var labelPossibility4: UILabel!
+ 
     var correctAnswer: String = ""
+    var answer1: String = ""
+    var answer2: String = ""
+    var answer3: String = ""
+    var answer4: String = ""
+
     var multiplier = 0
     var currentScore = 0
     var highestScore = 0
     var currentQuestion = 0
     var arr: Questions!
+
+    var delegate: PopupDelegate? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        labelCurrentScore.text = String(currentScore)
-        labelHighestScore.text = String( highestScore)
         NetworkService.sharedObj.getQuestions{
             (Questions) in
+            self.labelCurrentScore.text = String(self.currentScore)
+            self.labelHighestScore.text = String(self.highestScore)
             self.arr = Questions.shuffled()
             self.updateQuestions()
             self.btnAnswer1.addAction(for: .touchUpInside){
@@ -105,10 +108,14 @@ class NewGameViewController: UIViewController {
     func updateQuestions() {
         btnVisibilityReset()
         self.currentQuestion = (currentQuestion + 1) % self.arr.count
-            self.btnAnswer1.setTitle(arr[self.currentQuestion].getAnswer1(), for: UIControl.State.normal)
-            self.btnAnswer2.setTitle(arr[self.currentQuestion].getAnswer2(), for: UIControl.State.normal)
-            self.btnAnswer3.setTitle(arr[self.currentQuestion].getAnswer3(), for: UIControl.State.normal)
-            self.btnAnswer4.setTitle(arr[self.currentQuestion].getAnswer4(), for: UIControl.State.normal)
+        self.answer1 = arr[self.currentQuestion].getAnswer1()
+        self.answer2 = arr[self.currentQuestion].getAnswer2()
+        self.answer3 = arr[self.currentQuestion].getAnswer3()
+        self.answer4 = arr[self.currentQuestion].getAnswer4()
+            self.btnAnswer1.setTitle(answer1, for: UIControl.State.normal)
+            self.btnAnswer2.setTitle(answer2, for: UIControl.State.normal)
+            self.btnAnswer3.setTitle(answer3, for: UIControl.State.normal)
+            self.btnAnswer4.setTitle(answer4, for: UIControl.State.normal)
             self.labelQuestion.text = arr[self.currentQuestion].getQuestion()
             self.correctAnswer = arr[self.currentQuestion].getCorrectAnswer()
     }
@@ -135,6 +142,15 @@ class NewGameViewController: UIViewController {
         let nextViewController = storyboard.instantiateViewController(withIdentifier: "GameOver")
         self.present(nextViewController, animated: true,completion: nil)
     }
+    public func getQuestionsArr()-> Questions{
+        return arr!
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVc = segue.destination as! PublicHelpViewController
+        destinationVc.popupValuePassed(answer1: self.answer1,answer2: self.answer2,answer3: self.answer3,answer4: self.answer4,correctAnswer: self.correctAnswer)
+//        helpFromPublic(Any?.self)
+    }
 }
 
 extension UIControl {
@@ -142,3 +158,4 @@ extension UIControl {
         addAction(UIAction { (action: UIAction) in closure() }, for: controlEvents)
     }
 }
+
