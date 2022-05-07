@@ -47,7 +47,7 @@
                                 <buttonConfiguration key="configuration" style="plain" title="50%"/>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DIA-vG-eyF">
-                                <rect key="frame" x="0.0" y="176" width="6240.333333333333" height="264"/>
+                                <rect key="frame" x="0.0" y="176" width="6240.333333333333" height="272"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Qv-VN-BKi" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="6240.333333333333" height="304.33333333333331"/>
@@ -94,7 +94,7 @@ Donec non nunc nulla. Cras aliquam odio velit, eget consectetur lectus vulputate
                                 <viewLayoutGuide key="frameLayoutGuide" id="iKT-78-faf"/>
                             </scrollView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="KCB-ZT-3U3">
-                                <rect key="frame" x="0.0" y="512" width="6240.333333333333" height="162"/>
+                                <rect key="frame" x="0.0" y="520" width="6240.333333333333" height="154"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sUz-te-itt">
                                         <rect key="frame" x="0.0" y="0.0" width="6240.333333333333" height="31"/>
@@ -107,27 +107,21 @@ Donec non nunc nulla. Cras aliquam odio velit, eget consectetur lectus vulputate
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oZu-ic-j6x">
-                                        <rect key="frame" x="0.0" y="41" width="6240.333333333333" height="35"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="35" id="ORb-va-HAY"/>
-                                        </constraints>
+                                        <rect key="frame" x="0.0" y="41" width="6240.333333333333" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="gray" title="Button">
                                             <color key="baseBackgroundColor" systemColor="opaqueSeparatorColor"/>
                                         </buttonConfiguration>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Jq-eW-qcM">
-                                        <rect key="frame" x="0.0" y="86" width="6240.333333333333" height="35"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="35" id="Uk6-U4-SYM"/>
-                                        </constraints>
+                                        <rect key="frame" x="0.0" y="82" width="6240.333333333333" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="gray" title="Button">
                                             <color key="baseBackgroundColor" systemColor="opaqueSeparatorColor"/>
                                         </buttonConfiguration>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ffz-dw-ya0">
-                                        <rect key="frame" x="0.0" y="131" width="6240.333333333333" height="31"/>
+                                        <rect key="frame" x="0.0" y="123" width="6240.333333333333" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="gray" title="Button">
                                             <color key="baseBackgroundColor" systemColor="opaqueSeparatorColor"/>
@@ -147,6 +141,7 @@ Donec non nunc nulla. Cras aliquam odio velit, eget consectetur lectus vulputate
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Help from public"/>
                                 <connections>
+                                    <action selector="helpFromPublic:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="dPd-tV-JDt"/>
                                     <segue destination="EK1-HW-I9j" kind="show" id="tGK-Zz-4dt"/>
                                 </connections>
                             </button>
@@ -203,6 +198,7 @@ Donec non nunc nulla. Cras aliquam odio velit, eget consectetur lectus vulputate
                         <outlet property="btnAnswer3" destination="6Jq-eW-qcM" id="Wo3-9H-nIh"/>
                         <outlet property="btnAnswer4" destination="Ffz-dw-ya0" id="pTH-SB-gbT"/>
                         <outlet property="btnCallFriend" destination="FgC-jx-b9I" id="O28-1U-7hf"/>
+                        <outlet property="btnCallPublic" destination="0sT-vi-JNN" id="qOb-N2-jxt"/>
                         <outlet property="btnFiftyFifty" destination="ZVM-Oy-GZa" id="GKy-MP-LO4"/>
                         <outlet property="labelCurrentScore" destination="sdA-Rj-WOc" id="HY7-G9-hzp"/>
                         <outlet property="labelHighestScore" destination="khy-0z-9Bj" id="j4M-M9-rO5"/>

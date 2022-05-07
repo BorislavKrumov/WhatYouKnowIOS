@@ -28,7 +28,7 @@
                                 <rect key="frame" x="92" y="358" width="231" height="31"/>
                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="nJM-mA-ktn"/>
+                                    <constraint firstAttribute="height" constant="31" id="5Vq-WF-mLF"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="New Game" buttonSize="large"/>
@@ -40,12 +40,12 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBlueColor"/>
                         <constraints>
-                            <constraint firstItem="tyZ-0y-X2x" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="107" id="6KU-WK-sgw"/>
-                            <constraint firstItem="ycM-HK-yk0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JVG-QU-GEp"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tyZ-0y-X2x" secondAttribute="trailing" constant="131" id="KmY-yz-TKm"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tyZ-0y-X2x" secondAttribute="bottom" constant="474" id="SoE-bE-9nd"/>
-                            <constraint firstItem="ycM-HK-yk0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="18" id="akr-ci-TH4"/>
-                            <constraint firstItem="tyZ-0y-X2x" firstAttribute="leading" secondItem="ycM-HK-yk0" secondAttribute="leading" id="kx4-gx-uuV"/>
+                            <constraint firstItem="ycM-HK-yk0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="107" id="8ih-wd-Eq5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tyZ-0y-X2x" secondAttribute="bottom" constant="473" id="B3R-3Y-zEQ"/>
+                            <constraint firstItem="tyZ-0y-X2x" firstAttribute="centerX" secondItem="ycM-HK-yk0" secondAttribute="centerX" id="RXF-8V-nSV"/>
+                            <constraint firstItem="ycM-HK-yk0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="18" id="Wv8-JR-sNg"/>
+                            <constraint firstItem="tyZ-0y-X2x" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="92" id="gMv-yC-t0i"/>
+                            <constraint firstItem="ycM-HK-yk0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hiH-6p-WaG"/>
                         </constraints>
                     </view>
                 </viewController>

@@ -33,58 +33,59 @@ class PublicHelpViewController : UIViewController,PopupDelegate{
         if(answer1 == correctAnswer){
             currentPercentage = Int.random(in: 1...35) + 35
             percentage -= currentPercentage
-            labelAnswer1?.text = answer1 + ":" + String(currentPercentage)
+            labelAnswer1?.text = answer1 + ":" + String(currentPercentage) + "%"
             
             currentPercentage = Int.random(in: 1...35)
             percentage -= currentPercentage
-            labelAnswer2?.text = answer2 + ":" + String(currentPercentage)
+            labelAnswer2?.text = answer2 + ":" + String(currentPercentage) + "%"
             
             currentPercentage = Int.random(in: 1...35)
             percentage -= currentPercentage
             labelAnswer3?.text = answer3 + ":" + String(currentPercentage)
-            labelAnswer4?.text = answer4 + ":" + String(percentage)
+            + "%"
+            labelAnswer4?.text = answer4 + ":" + String(percentage) + "%"
         }
         else if(answer2 == correctAnswer){
             currentPercentage = Int.random(in: 1...35) + 35
             percentage -= currentPercentage
-            labelAnswer2?.text = answer2 + ":" + String(currentPercentage)
+            labelAnswer2?.text = answer2 + ":" + String(currentPercentage) + "%"
             
             currentPercentage = Int.random(in: 1...35)
             percentage -= currentPercentage
-            labelAnswer1?.text = answer1 + ":" + String(currentPercentage)
+            labelAnswer1?.text = answer1 + ":" + String(currentPercentage) + "%"
             
             currentPercentage = Int.random(in: 1...35)
             percentage -= currentPercentage
-            labelAnswer3?.text = answer3 + ":" + String(currentPercentage)
-            labelAnswer4?.text = answer4 + ":" + String(percentage)
+            labelAnswer3?.text = answer3 + ":" + String(currentPercentage) + "%"
+            labelAnswer4?.text = answer4 + ":" + String(percentage) + "%"
         }
         else if(answer3 == correctAnswer){
             currentPercentage = Int.random(in: 1...35) + 35
             percentage -= currentPercentage
-            labelAnswer3?.text = answer3 + ":" + String(currentPercentage)
+            labelAnswer3?.text = answer3 + ":" + String(currentPercentage) + "%"
             
             currentPercentage = Int.random(in: 1...35)
             percentage -= currentPercentage
-            labelAnswer2?.text = answer2 + ":" + String(currentPercentage)
+            labelAnswer2?.text = answer2 + ":" + String(currentPercentage) + "%"
             
             currentPercentage = Int.random(in: 1...35)
             percentage -= currentPercentage
-            labelAnswer1?.text = answer1 + ":" + String(currentPercentage)
-            labelAnswer4?.text = answer4 + ":" + String(percentage)
+            labelAnswer1?.text = answer1 + ":" + String(currentPercentage) + "%"
+            labelAnswer4?.text = answer4 + ":" + String(percentage) + "%"
         }
         else if(answer4 == correctAnswer){
             currentPercentage = Int.random(in: 1...35) + 35
             percentage -= currentPercentage
-            labelAnswer4?.text = answer4 + ":" + String(currentPercentage)
+            labelAnswer4?.text = answer4 + ":" + String(currentPercentage) + "%"
             
             currentPercentage = Int.random(in: 1...35)
             percentage -= currentPercentage
-            labelAnswer2?.text = answer2 + ":" + String(currentPercentage)
+            labelAnswer2?.text = answer2 + ":" + String(currentPercentage) + "%"
             
             currentPercentage = Int.random(in: 1...35)
             percentage -= currentPercentage
-            labelAnswer3?.text = answer3 + ":" + String(currentPercentage)
-            labelAnswer1?.text = answer1 + ":" + String(percentage)
+            labelAnswer3?.text = answer3 + ":" + String(currentPercentage) + "%"
+            labelAnswer1?.text = answer1 + ":" + String(percentage) + "%"
         }
     }
     func popupValuePassed(answer1: String, answer2: String, answer3: String, answer4: String,correctAnswer: String) {

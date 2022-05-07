@@ -31,7 +31,9 @@ class NewGameViewController: UIViewController {
     var highestScore = 0
     var currentQuestion = 0
     var arr: Questions!
-
+    
+    var animationActive = false
+    var animationsDuration = 10
     var delegate: PopupDelegate? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,67 +45,49 @@ class NewGameViewController: UIViewController {
             self.arr = Questions.shuffled()
             self.updateQuestions()
             self.btnAnswer1.addAction(for: .touchUpInside){
-                if (self.btnAnswer1.currentTitle == self.correctAnswer){
-                    self.updateQuestions()
-                    self.addPoints()
-                }
-                
-                else {
-                    self.gameOverScreen()
-                }
+                self.checkAnswer(button: self.btnAnswer1, correctAnswer: self.correctAnswer)
             }
             self.btnAnswer2.addAction {
-                if (self.btnAnswer2.currentTitle == self.correctAnswer){
-                    self.updateQuestions()
-                    self.addPoints()
-                }
-                
-                else {
-                    self.gameOverScreen()
-                }
+                self.checkAnswer(button: self.btnAnswer2, correctAnswer: self.correctAnswer)
             }
             self.btnAnswer3.addAction(for: .touchUpInside){
-	                if (self.btnAnswer3.currentTitle == self.correctAnswer){
-                    self.addPoints()
-                    self.updateQuestions()
-                }
-                
-                else {
-                    self.gameOverScreen()
-                }
+                self.checkAnswer(button: self.btnAnswer3, correctAnswer: self.correctAnswer)
             }
-            self.btnAnswer4.addAction {
-                if (self.btnAnswer4.currentTitle == self.correctAnswer){
-                    self.updateQuestions()
-                    self.addPoints()
-                }
+            self.btnAnswer4.addAction(for: .touchUpInside){
+                self.checkAnswer(button: self.btnAnswer4, correctAnswer: self.correctAnswer)
                 
-                else {
-                    self.gameOverScreen()
-                }
             }
+        
             self.btnFiftyFifty.addAction {
-                self.btnFiftyFifty.isHidden = true
-                if (self.btnAnswer1.currentTitle == self.correctAnswer){
-                    self.btnAnswer3.isHidden = true
-                    self.btnAnswer4.isHidden = true
+                self.btnFiftyFifty.flash {
+                    self.btnFiftyFifty.isHidden = true
+                    if (self.btnAnswer1.currentTitle == self.correctAnswer){
+                        self.btnAnswer3.isHidden = true
+                        self.btnAnswer4.isHidden = true
+                    }
+                    else if(self.btnAnswer2.currentTitle == self.correctAnswer){
+                        self.btnAnswer4.isHidden = true
+                        self.btnAnswer3.isHidden = true
+                    }
+                    else if(self.btnAnswer3.currentTitle == self.correctAnswer){
+                        self.btnAnswer4.isHidden = true
+                        self.btnAnswer2.isHidden = true
+                    }
+                    else if(self.btnAnswer4.currentTitle == self.correctAnswer){
+                        self.btnAnswer1.isHidden = true
+                        self.btnAnswer3.isHidden = true
+                    }
                 }
-                else if(self.btnAnswer2.currentTitle == self.correctAnswer){
-                    self.btnAnswer4.isHidden = true
-                    self.btnAnswer3.isHidden = true
-                }
-                else if(self.btnAnswer3.currentTitle == self.correctAnswer){
-                    self.btnAnswer4.isHidden = true
-                    self.btnAnswer2.isHidden = true
-                }
-                else if(self.btnAnswer4.currentTitle == self.correctAnswer){
-                    self.btnAnswer1.isHidden = true
-                    self.btnAnswer3.isHidden = true
-                }
+                
             }
             
 //            self.arr.shuffle()
     }
+    }
+    @IBAction func helpFromPublic(_ sender: Any) {
+        self.btnCallPublic.flash {
+            self.btnCallPublic.isHidden = true
+        }
     }
     func updateQuestions() {
         btnVisibilityReset()
@@ -146,10 +130,25 @@ class NewGameViewController: UIViewController {
         return arr!
     }
     
+    func checkAnswer(button: UIButton, correctAnswer:String){
+        button.layer.backgroundColor = UIColor.clear.cgColor
+        if (button.currentTitle == self.correctAnswer){
+            button.pulsate() {
+                self.updateQuestions()
+                self.addPoints()
+            }
+
+        }
+        
+        else {
+                button.shake(){
+                self.gameOverScreen()
+            }
+        }
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationVc = segue.destination as! PublicHelpViewController
         destinationVc.popupValuePassed(answer1: self.answer1,answer2: self.answer2,answer3: self.answer3,answer4: self.answer4,correctAnswer: self.correctAnswer)
-//        helpFromPublic(Any?.self)
     }
 }
 
@@ -159,3 +158,85 @@ extension UIControl {
     }
 }
 
+
+extension UIButton {
+    
+    func pulsate(_ completion: @escaping ()->()) {
+        let pulse = CASpringAnimation(keyPath: "transform.scale")
+        pulse.duration = 2
+        pulse.fromValue = 0.95
+        pulse.toValue = 1
+        pulse.autoreverses = true
+        pulse.repeatCount = 2
+        pulse.initialVelocity = 0.5
+        pulse.damping = 1.0
+        layer.add(pulse, forKey: nil)
+        CATransaction.commit()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5){
+            completion()
+        }
+    }
+    
+    func flash( _ completion: @escaping ()->()) {
+        let flash = CABasicAnimation(keyPath: "opacity")
+        flash.duration = 0.5
+        flash.fromValue = 1
+        flash.toValue = 0.1
+        flash.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        flash.autoreverses = true
+        flash.repeatCount = 3
+        
+        layer.add(flash, forKey: nil)
+        CATransaction.commit()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5){
+            completion()
+    }
+    }
+    func shake(_ completion: @escaping ()->()) {
+        let shake = CABasicAnimation(keyPath: "position")
+        shake.duration = 0.1
+        shake.repeatCount = 2
+        shake.autoreverses = true
+        
+        let fromPoint = CGPoint(x: center.x - 5, y: center.y)
+        let fromValue = NSValue(cgPoint: fromPoint)
+        
+        let toPoint = CGPoint(x: center.x + 5, y: center.y)
+        let toValue = NSValue(cgPoint: toPoint)
+        
+        shake.fromValue = fromValue
+        shake.toValue = toValue
+        
+        layer.add(shake, forKey: nil)
+        CATransaction.commit()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2){
+            completion()
+        
+    }
+    }
+}
+    
+
+public extension UIImage {
+   convenience init?(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) {
+     let rect = CGRect(origin: .zero, size: size)
+     UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
+     color.setFill()
+     UIRectFill(rect)
+     let image = UIGraphicsGetImageFromCurrentImageContext()
+     UIGraphicsEndImageContext()
+     
+     guard let cgImage = image?.cgImage else { return nil }
+     self.init(cgImage: cgImage)
+   }
+ }
+
+extension UIButton {
+  func setBackgroundColor(_ color: UIColor, forState controlState: UIControl.State) {
+    let colorImage = UIGraphicsImageRenderer(size: CGSize(width: 1, height: 1)).image { _ in
+      color.setFill()
+      UIBezierPath(rect: CGRect(x: 0, y: 0, width: 1, height: 1)).fill()
+    }
+    setBackgroundImage(colorImage, for: controlState)
+  }
+}
