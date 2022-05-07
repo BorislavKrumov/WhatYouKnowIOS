@@ -21,6 +21,7 @@
 		1F58573D281C132000EF2D06 /* WhatYouKnowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F58573C281C132000EF2D06 /* WhatYouKnowTests.swift */; };
 		1F585747281C132000EF2D06 /* WhatYouKnowUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F585746281C132000EF2D06 /* WhatYouKnowUITests.swift */; };
 		1F585749281C132000EF2D06 /* WhatYouKnowUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F585748281C132000EF2D06 /* WhatYouKnowUITestsLaunchTests.swift */; };
+		1F590106282704FF00AE5449 /* AnimationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F590105282704FF00AE5449 /* AnimationButton.swift */; };
 		1F5CDF9D2823F8FF002D6402 /* PopupDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5CDF9C2823F8FF002D6402 /* PopupDelegate.swift */; };
 		1F5CDFA128240207002D6402 /* PublicHelp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F5CDFA028240207002D6402 /* PublicHelp.storyboard */; };
 		1F9979C9281FFDFB00DD9895 /* Network Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9979C8281FFDFA00DD9895 /* Network Service.swift */; };
@@ -64,6 +65,7 @@
 		1F585742281C132000EF2D06 /* WhatYouKnowUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhatYouKnowUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F585746281C132000EF2D06 /* WhatYouKnowUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatYouKnowUITests.swift; sourceTree = "<group>"; };
 		1F585748281C132000EF2D06 /* WhatYouKnowUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatYouKnowUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1F590105282704FF00AE5449 /* AnimationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationButton.swift; sourceTree = "<group>"; };
 		1F5CDF9C2823F8FF002D6402 /* PopupDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupDelegate.swift; sourceTree = "<group>"; };
 		1F5CDFA028240207002D6402 /* PublicHelp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PublicHelp.storyboard; sourceTree = "<group>"; };
 		1F9979C8281FFDFA00DD9895 /* Network Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network Service.swift"; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				1F585727281C131A00EF2D06 /* SceneDelegate.swift */,
 				1F9979C8281FFDFA00DD9895 /* Network Service.swift */,
 				1F5CDF9C2823F8FF002D6402 /* PopupDelegate.swift */,
+				1F590105282704FF00AE5449 /* AnimationButton.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 			files = (
 				1F9979C9281FFDFB00DD9895 /* Network Service.swift in Sources */,
 				1F58572A281C131A00EF2D06 /* ViewController.swift in Sources */,
+				1F590106282704FF00AE5449 /* AnimationButton.swift in Sources */,
 				1F360073281C25FC009A02DB /* NewGameViewController.swift in Sources */,
 				1F5CDF9D2823F8FF002D6402 /* PopupDelegate.swift in Sources */,
 				1F585726281C131A00EF2D06 /* AppDelegate.swift in Sources */,

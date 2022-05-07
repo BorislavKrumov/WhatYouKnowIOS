@@ -147,6 +147,7 @@ Donec non nunc nulla. Cras aliquam odio velit, eget consectetur lectus vulputate
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Help from public"/>
                                 <connections>
+                                    <action selector="helpFromPublic:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="dPd-tV-JDt"/>
                                     <segue destination="EK1-HW-I9j" kind="show" id="tGK-Zz-4dt"/>
                                 </connections>
                             </button>
@@ -203,6 +204,7 @@ Donec non nunc nulla. Cras aliquam odio velit, eget consectetur lectus vulputate
                         <outlet property="btnAnswer3" destination="6Jq-eW-qcM" id="Wo3-9H-nIh"/>
                         <outlet property="btnAnswer4" destination="Ffz-dw-ya0" id="pTH-SB-gbT"/>
                         <outlet property="btnCallFriend" destination="FgC-jx-b9I" id="O28-1U-7hf"/>
+                        <outlet property="btnCallPublic" destination="0sT-vi-JNN" id="qOb-N2-jxt"/>
                         <outlet property="btnFiftyFifty" destination="ZVM-Oy-GZa" id="GKy-MP-LO4"/>
                         <outlet property="labelCurrentScore" destination="sdA-Rj-WOc" id="HY7-G9-hzp"/>
                         <outlet property="labelHighestScore" destination="khy-0z-9Bj" id="j4M-M9-rO5"/>
