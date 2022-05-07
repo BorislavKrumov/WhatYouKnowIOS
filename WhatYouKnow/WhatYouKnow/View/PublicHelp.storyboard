@@ -73,6 +73,7 @@
                         <outlet property="labelAnswer2" destination="0oy-A8-9Yh" id="igX-jl-Rwb"/>
                         <outlet property="labelAnswer3" destination="JoZ-tL-uD0" id="PMx-BH-SNu"/>
                         <outlet property="labelAnswer4" destination="B3g-Hx-A3w" id="BYU-vx-w17"/>
+                        <outlet property="publicView" destination="4pJ-qg-Lfx" id="HRl-E5-Igh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ScN-Ha-hGm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

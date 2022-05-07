@@ -7,6 +7,7 @@
 
 import UIKit
 class PublicHelpViewController : UIViewController,PopupDelegate{
+    @IBOutlet weak var publicView: UIView!
     @IBOutlet weak var labelAnswer1: UILabel!
     @IBOutlet weak var labelAnswer2: UILabel!
     @IBOutlet weak var labelAnswer3: UILabel!
@@ -16,9 +17,19 @@ class PublicHelpViewController : UIViewController,PopupDelegate{
     private var answer3: String?
     private var answer4: String?
     private var correctAnswer: String?
+    var gesture : UITapGestureRecognizer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         populateValues(answer1: answer1!, answer2: answer2!, answer3: answer3!, answer4: answer4!, correctAnswer: correctAnswer!)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(closeView), name: NSNotification.Name("CloseView"), object: nil)
+
+
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(closeView(_:)))
+        view.addGestureRecognizer(gesture)
+        self.gesture = gesture
     }
     
     override func didReceiveMemoryWarning() {
@@ -95,4 +106,14 @@ class PublicHelpViewController : UIViewController,PopupDelegate{
         self.answer4 = answer4
         self.correctAnswer = correctAnswer
     }
+    
+
+     @objc private func closeView(_ tapGestureRecognizer: UITapGestureRecognizer) {
+         let location = tapGestureRecognizer.location(in: publicView)
+         guard publicView.isHidden == false,
+               !publicView.bounds.contains(location) else {
+             return
+         }
+         self.dismiss(animated: true)
+     }
 }
