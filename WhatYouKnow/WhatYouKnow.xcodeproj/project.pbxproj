@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F2D178928232A56001846DF /* PublicHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2D178828232A56001846DF /* PublicHelpViewController.swift */; };
 		1F360071281C2585009A02DB /* NewGame.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F360070281C2585009A02DB /* NewGame.storyboard */; };
 		1F360073281C25FC009A02DB /* NewGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F360072281C25FC009A02DB /* NewGameViewController.swift */; };
 		1F360075281C8167009A02DB /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F360074281C8167009A02DB /* GameOverViewController.swift */; };
@@ -20,6 +21,8 @@
 		1F58573D281C132000EF2D06 /* WhatYouKnowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F58573C281C132000EF2D06 /* WhatYouKnowTests.swift */; };
 		1F585747281C132000EF2D06 /* WhatYouKnowUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F585746281C132000EF2D06 /* WhatYouKnowUITests.swift */; };
 		1F585749281C132000EF2D06 /* WhatYouKnowUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F585748281C132000EF2D06 /* WhatYouKnowUITestsLaunchTests.swift */; };
+		1F5CDF9D2823F8FF002D6402 /* PopupDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5CDF9C2823F8FF002D6402 /* PopupDelegate.swift */; };
+		1F5CDFA128240207002D6402 /* PublicHelp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F5CDFA028240207002D6402 /* PublicHelp.storyboard */; };
 		1F9979C9281FFDFB00DD9895 /* Network Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9979C8281FFDFA00DD9895 /* Network Service.swift */; };
 		1FDF0D73281D50E700C0B066 /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDF0D72281D50E600C0B066 /* Score.swift */; };
 		1FDF0D75281D50FA00C0B066 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDF0D74281D50FA00C0B066 /* Question.swift */; };
@@ -43,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F2D178828232A56001846DF /* PublicHelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicHelpViewController.swift; sourceTree = "<group>"; };
 		1F360070281C2585009A02DB /* NewGame.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewGame.storyboard; sourceTree = "<group>"; };
 		1F360072281C25FC009A02DB /* NewGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGameViewController.swift; sourceTree = "<group>"; };
 		1F360074281C8167009A02DB /* GameOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +64,8 @@
 		1F585742281C132000EF2D06 /* WhatYouKnowUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhatYouKnowUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F585746281C132000EF2D06 /* WhatYouKnowUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatYouKnowUITests.swift; sourceTree = "<group>"; };
 		1F585748281C132000EF2D06 /* WhatYouKnowUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatYouKnowUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1F5CDF9C2823F8FF002D6402 /* PopupDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupDelegate.swift; sourceTree = "<group>"; };
+		1F5CDFA028240207002D6402 /* PublicHelp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PublicHelp.storyboard; sourceTree = "<group>"; };
 		1F9979C8281FFDFA00DD9895 /* Network Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network Service.swift"; sourceTree = "<group>"; };
 		1FDF0D72281D50E600C0B066 /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
 		1FDF0D74281D50FA00C0B066 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
@@ -156,6 +162,7 @@
 				1F58572B281C131A00EF2D06 /* Main.storyboard */,
 				1F360070281C2585009A02DB /* NewGame.storyboard */,
 				1F360076281C8186009A02DB /* GameOver.storyboard */,
+				1F5CDFA028240207002D6402 /* PublicHelp.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -166,6 +173,7 @@
 				1F585729281C131A00EF2D06 /* ViewController.swift */,
 				1F360072281C25FC009A02DB /* NewGameViewController.swift */,
 				1F360074281C8167009A02DB /* GameOverViewController.swift */,
+				1F2D178828232A56001846DF /* PublicHelpViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -176,6 +184,7 @@
 				1F585725281C131A00EF2D06 /* AppDelegate.swift */,
 				1F585727281C131A00EF2D06 /* SceneDelegate.swift */,
 				1F9979C8281FFDFA00DD9895 /* Network Service.swift */,
+				1F5CDF9C2823F8FF002D6402 /* PopupDelegate.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -286,6 +295,7 @@
 			files = (
 				1F360077281C8186009A02DB /* GameOver.storyboard in Resources */,
 				1F585732281C132000EF2D06 /* LaunchScreen.storyboard in Resources */,
+				1F5CDFA128240207002D6402 /* PublicHelp.storyboard in Resources */,
 				1F360071281C2585009A02DB /* NewGame.storyboard in Resources */,
 				1F58572F281C132000EF2D06 /* Assets.xcassets in Resources */,
 				1F58572D281C131A00EF2D06 /* Main.storyboard in Resources */,
@@ -316,10 +326,12 @@
 				1F9979C9281FFDFB00DD9895 /* Network Service.swift in Sources */,
 				1F58572A281C131A00EF2D06 /* ViewController.swift in Sources */,
 				1F360073281C25FC009A02DB /* NewGameViewController.swift in Sources */,
+				1F5CDF9D2823F8FF002D6402 /* PopupDelegate.swift in Sources */,
 				1F585726281C131A00EF2D06 /* AppDelegate.swift in Sources */,
 				1F585728281C131A00EF2D06 /* SceneDelegate.swift in Sources */,
 				1FDF0D73281D50E700C0B066 /* Score.swift in Sources */,
 				1FDF0D75281D50FA00C0B066 /* Question.swift in Sources */,
+				1F2D178928232A56001846DF /* PublicHelpViewController.swift in Sources */,
 				1F360075281C8167009A02DB /* GameOverViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
