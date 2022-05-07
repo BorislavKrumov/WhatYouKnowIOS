@@ -45,7 +45,7 @@ class NewGameViewController: UIViewController {
             self.arr = Questions.shuffled()
             self.updateQuestions()
             self.btnAnswer1.addAction(for: .touchUpInside){
-                self.checkAnswer(button: self.btnAnswer2, correctAnswer: self.correctAnswer)
+                self.checkAnswer(button: self.btnAnswer1, correctAnswer: self.correctAnswer)
             }
             self.btnAnswer2.addAction {
                 self.checkAnswer(button: self.btnAnswer2, correctAnswer: self.correctAnswer)
@@ -53,17 +53,8 @@ class NewGameViewController: UIViewController {
             self.btnAnswer3.addAction(for: .touchUpInside){
                 self.checkAnswer(button: self.btnAnswer3, correctAnswer: self.correctAnswer)
             }
-            self.btnAnswer4.addAction {
-                self.btnAnswer4.pulsate(button: self.btnAnswer4){
-                    if (self.btnAnswer4.currentTitle == self.correctAnswer){
-                        self.updateQuestions()
-                        self.addPoints()
-                    }
-                    
-                    else {
-                        self.gameOverScreen()
-                    }
-                }
+            self.btnAnswer4.addAction(for: .touchUpInside){
+                self.checkAnswer(button: self.btnAnswer4, correctAnswer: self.correctAnswer)
                 
             }
         
@@ -94,8 +85,9 @@ class NewGameViewController: UIViewController {
     }
     }
     @IBAction func helpFromPublic(_ sender: Any) {
-        self.btnCallPublic.layer.cornerRadius = 8
-        self.btnCallPublic.isHidden = true
+        self.btnCallPublic.flash {
+            self.btnCallPublic.isHidden = true
+        }
     }
     func updateQuestions() {
         btnVisibilityReset()
@@ -139,8 +131,9 @@ class NewGameViewController: UIViewController {
     }
     
     func checkAnswer(button: UIButton, correctAnswer:String){
+        button.layer.backgroundColor = UIColor.clear.cgColor
         if (button.currentTitle == self.correctAnswer){
-            button.pulsate(button: button) {
+            button.pulsate() {
                 self.updateQuestions()
                 self.addPoints()
             }
@@ -148,7 +141,7 @@ class NewGameViewController: UIViewController {
         }
         
         else {
-                button.shake(button: button){
+                button.shake(){
                 self.gameOverScreen()
             }
         }
@@ -157,16 +150,6 @@ class NewGameViewController: UIViewController {
         let destinationVc = segue.destination as! PublicHelpViewController
         destinationVc.popupValuePassed(answer1: self.answer1,answer2: self.answer2,answer3: self.answer3,answer4: self.answer4,correctAnswer: self.correctAnswer)
     }
-    
-//    func prepareAnimation(){
-//        if animationActive == false {
-//            animationActive == true
-//            self.btnAnswer4.pulsate()
-//            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(animationsDuration), execute:{
-//                self.animationActive = false
-//            })
-//        }
-//    }
 }
 
 extension UIControl {
@@ -178,9 +161,9 @@ extension UIControl {
 
 extension UIButton {
     
-    func pulsate(button: UIButton, _ completion: @escaping ()->()) {
+    func pulsate(_ completion: @escaping ()->()) {
         let pulse = CASpringAnimation(keyPath: "transform.scale")
-        pulse.duration = 6
+        pulse.duration = 2
         pulse.fromValue = 0.95
         pulse.toValue = 1
         pulse.autoreverses = true
@@ -209,7 +192,7 @@ extension UIButton {
             completion()
     }
     }
-    func shake(button: UIButton, _ completion: @escaping ()->()) {
+    func shake(_ completion: @escaping ()->()) {
         let shake = CABasicAnimation(keyPath: "position")
         shake.duration = 0.1
         shake.repeatCount = 2
@@ -226,7 +209,7 @@ extension UIButton {
         
         layer.add(shake, forKey: nil)
         CATransaction.commit()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5){
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2){
             completion()
         
     }

@@ -10,12 +10,12 @@ struct Question: Decodable {
     let questionBank:[QuestionJson]
 }
 struct QuestionJson: Decodable {
-    var question: String
-    var answer1: String
-    var answer2 : String
-    var answer3: String
-    var answer4: String
-    var correctAnswer: String
+    private var question: String
+    private var answer1: String
+    private var answer2 : String
+    private var answer3: String
+    private var answer4: String
+    private var correctAnswer: String
     
     init(question: String, answer1: String, answer2:String, answer3:String, answer4: String, correctAnswer:String){
         self.question = question
