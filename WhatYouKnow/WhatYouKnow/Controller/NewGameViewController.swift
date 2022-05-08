@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import CoreData
 
 class NewGameViewController: UIViewController {
 
     @IBOutlet weak var labelCurrentScore: UILabel!
+    //This need to be persisted
     @IBOutlet weak var labelHighestScore: UILabel!
     @IBOutlet weak var labelQuestion: UILabel!
     @IBOutlet weak var btnAnswer1: UIButton!
@@ -35,13 +37,28 @@ class NewGameViewController: UIViewController {
     var animationActive = false
     var animationsDuration = 10
     var delegate: PopupDelegate? = nil
+    
+    private lazy var persistentContainer: NSPersistentContainer = {
+        NSPersistentContainer(name: "Scores")
+    }()
+    private var managedObjectContext: NSManagedObjectContext?
+
     override func viewDidLoad() {
         super.viewDidLoad()
+            
+        persistentContainer.loadPersistentStores { [weak self] persistentStoreDescription, error in
+            if let error = error {
+                print("Unable to Add Persistent Store")
+                print("\(error), \(error.localizedDescription)")
+
+            } else {
+                self?.fetchScore()
+            }
+        }
         // Do any additional setup after loading the view.
         NetworkService.sharedObj.getQuestions{
             (Questions) in
             self.labelCurrentScore.text = String(self.currentScore)
-            self.labelHighestScore.text = String(self.highestScore)
             self.arr = Questions.shuffled()
             self.updateQuestions()
             self.btnAnswer1.addAction(for: .touchUpInside){
@@ -80,16 +97,33 @@ class NewGameViewController: UIViewController {
                 }
                 
             }
-            
-//            self.arr.shuffle()
-    }
+        }
     }
     @IBAction func helpFromPublic(_ sender: Any) {
         self.btnCallPublic.flash {
             self.btnCallPublic.isHidden = true
         }
     }
-    func updateQuestions() {
+    private func fetchScore() {
+        print(persistentContainer.viewContext)
+        let fetchRequest: NSFetchRequest<Scores> = Scores.fetchRequest()
+        persistentContainer.viewContext.perform {
+            do{
+            
+            let result = try fetchRequest.execute()
+                DispatchQueue.main.async {
+                    let result = result.last?.highscore
+                    self.labelHighestScore.text = result!
+                }
+                
+                print(self.labelHighestScore.text!)
+            }
+            catch{
+                print("Error from fetch request")
+            }
+        }
+    }
+    private func updateQuestions() {
         btnVisibilityReset()
         self.currentQuestion = (currentQuestion + 1) % self.arr.count
         self.answer1 = arr[self.currentQuestion].getAnswer1()
@@ -104,33 +138,49 @@ class NewGameViewController: UIViewController {
             self.correctAnswer = arr[self.currentQuestion].getCorrectAnswer()
     }
     
-    func btnVisibilityReset(){
+   private func btnVisibilityReset(){
         btnAnswer1.isHidden = false
         btnAnswer2.isHidden = false
         btnAnswer3.isHidden = false
         btnAnswer4.isHidden = false
     }
-    func addPoints() {
+    private func addPoints() {
         multiplier += 1
         currentScore += 10 + multiplier * Int(3.76)
         labelCurrentScore.text = String(currentScore)
         
         if(currentScore > highestScore){
+            managedObjectContext = persistentContainer.viewContext
+            guard let managedObjectContext = managedObjectContext else {
+                fatalError("No managed object context available")
+            }
+            let score = Scores(context: managedObjectContext)
+            
+            score.highscore = String(highestScore)
+            
+            do{
+                try
+                managedObjectContext.save()
+            }
+            catch
+            {
+                print("Unable to save Book, \(error)")
+            }
             highestScore = currentScore
             labelHighestScore.text = String(highestScore)
-            
         }
     }
-    func gameOverScreen(){
+    private func gameOverScreen(){
         let storyboard = UIStoryboard(name: "GameOver", bundle: nil)
         let nextViewController = storyboard.instantiateViewController(withIdentifier: "GameOver")
+        self.fetchScore()
         self.present(nextViewController, animated: true,completion: nil)
     }
     public func getQuestionsArr()-> Questions{
         return arr!
     }
     
-    func checkAnswer(button: UIButton, correctAnswer:String){
+    private func checkAnswer(button: UIButton, correctAnswer:String){
         button.layer.backgroundColor = UIColor.clear.cgColor
         if (button.currentTitle == self.correctAnswer){
             button.pulsate() {
@@ -163,7 +213,7 @@ extension UIButton {
     
     func pulsate(_ completion: @escaping ()->()) {
         let pulse = CASpringAnimation(keyPath: "transform.scale")
-        pulse.duration = 2
+        pulse.duration = 1
         pulse.fromValue = 0.95
         pulse.toValue = 1
         pulse.autoreverses = true
@@ -172,7 +222,7 @@ extension UIButton {
         pulse.damping = 1.0
         layer.add(pulse, forKey: nil)
         CATransaction.commit()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5){
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4){
             completion()
         }
     }
@@ -217,26 +267,3 @@ extension UIButton {
 }
     
 
-public extension UIImage {
-   convenience init?(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) {
-     let rect = CGRect(origin: .zero, size: size)
-     UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
-     color.setFill()
-     UIRectFill(rect)
-     let image = UIGraphicsGetImageFromCurrentImageContext()
-     UIGraphicsEndImageContext()
-     
-     guard let cgImage = image?.cgImage else { return nil }
-     self.init(cgImage: cgImage)
-   }
- }
-
-extension UIButton {
-  func setBackgroundColor(_ color: UIColor, forState controlState: UIControl.State) {
-    let colorImage = UIGraphicsImageRenderer(size: CGSize(width: 1, height: 1)).image { _ in
-      color.setFill()
-      UIBezierPath(rect: CGRect(x: 0, y: 0, width: 1, height: 1)).fill()
-    }
-    setBackgroundImage(colorImage, for: controlState)
-  }
-}
