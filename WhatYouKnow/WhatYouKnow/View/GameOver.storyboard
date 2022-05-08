@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,28 +13,23 @@
             <objects>
                 <viewController storyboardIdentifier="GameOver" title="GameOverViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="GameOverViewController" customModule="WhatYouKnow" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Game Over" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yEx-VF-6UT">
-                                <rect key="frame" x="139" y="259" width="137" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tcj-CB-WAr">
-                                <rect key="frame" x="20" y="434" width="374" height="31"/>
+                                <rect key="frame" x="20" y="382" width="350" height="31"/>
                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Home">
                                     <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="homeScreen" destination="Y6W-OH-hqX" eventType="touchUpInside" id="t5F-0c-hKH"/>
                                     <segue destination="ust-8p-dma" kind="showDetail" id="9ew-98-iYR"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X15-TC-Iot">
-                                <rect key="frame" x="20" y="375" width="374" height="33"/>
+                                <rect key="frame" x="20" y="325" width="350" height="31"/>
                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="X15-TC-Iot" secondAttribute="height" multiplier="34:3" id="sbr-iS-0HX"/>
@@ -44,9 +39,15 @@
                                     <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="Moj-EK-I8J" kind="showDetail" id="I2t-Al-vOH"/>
+                                    <action selector="newGame" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ycT-Q2-P3K"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Game Over" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yEx-VF-6UT">
+                                <rect key="frame" x="127" y="255" width="161" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemCyanColor"/>
@@ -54,13 +55,13 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="X15-TC-Iot" secondAttribute="trailing" constant="20" id="1rc-Zc-o0X"/>
                             <constraint firstItem="X15-TC-Iot" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="3Ye-2M-W1S"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="tcj-CB-WAr" secondAttribute="bottom" constant="397" id="5r3-Ae-nYF"/>
-                            <constraint firstItem="yEx-VF-6UT" firstAttribute="centerX" secondItem="X15-TC-Iot" secondAttribute="centerX" id="Rdz-So-GkD"/>
+                            <constraint firstItem="yEx-VF-6UT" firstAttribute="centerX" secondItem="X15-TC-Iot" secondAttribute="centerX" id="Dsa-9P-bD6"/>
                             <constraint firstItem="tcj-CB-WAr" firstAttribute="top" secondItem="X15-TC-Iot" secondAttribute="bottom" constant="26" id="SWE-8x-E3K"/>
+                            <constraint firstItem="yEx-VF-6UT" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="211" id="aux-NG-cjb"/>
                             <constraint firstItem="tcj-CB-WAr" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="dHp-Gg-r52"/>
-                            <constraint firstItem="yEx-VF-6UT" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="139" id="nLo-Nf-z1W"/>
                             <constraint firstItem="tcj-CB-WAr" firstAttribute="top" secondItem="X15-TC-Iot" secondAttribute="bottom" constant="26" id="pww-JU-SHY"/>
-                            <constraint firstItem="yEx-VF-6UT" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="215" id="rSO-Gr-mQl"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="tcj-CB-WAr" secondAttribute="trailing" constant="20" id="svh-Qp-Ltt"/>
+                            <constraint firstItem="yEx-VF-6UT" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="127" id="tBf-Ua-242"/>
                         </constraints>
                     </view>
                 </viewController>

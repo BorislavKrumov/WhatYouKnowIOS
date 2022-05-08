@@ -17,7 +17,7 @@ class PublicHelpViewController : UIViewController,PopupDelegate{
     private var answer3: String?
     private var answer4: String?
     private var correctAnswer: String?
-    var gesture : UITapGestureRecognizer?
+    private var gesture : UITapGestureRecognizer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +37,7 @@ class PublicHelpViewController : UIViewController,PopupDelegate{
         
     }    
     
-    func populateValues(answer1:String, answer2:String, answer3:String, answer4: String, correctAnswer:String){
+   private func populateValues(answer1:String, answer2:String, answer3:String, answer4: String, correctAnswer:String){
         
         var percentage = 100
         var currentPercentage: Int

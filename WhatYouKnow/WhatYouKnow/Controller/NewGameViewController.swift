@@ -123,6 +123,10 @@ class NewGameViewController: UIViewController {
             }
         }
     }
+    @IBAction func btnCallAFriend(_ sender: Any) {
+        self.btnCallFriend.isHidden = true
+        self.showToast(message: "I think the right answer is: A", font: .systemFont(ofSize: 12.0))
+    }
     private func updateQuestions() {
         btnVisibilityReset()
         self.currentQuestion = (currentQuestion + 1) % self.arr.count
@@ -164,7 +168,7 @@ class NewGameViewController: UIViewController {
             }
             catch
             {
-                print("Unable to save Book, \(error)")
+                print("Unable to save Score, \(error)")
             }
             highestScore = currentScore
             labelHighestScore.text = String(highestScore)
@@ -181,17 +185,14 @@ class NewGameViewController: UIViewController {
     }
     
     private func checkAnswer(button: UIButton, correctAnswer:String){
-        button.layer.backgroundColor = UIColor.clear.cgColor
         if (button.currentTitle == self.correctAnswer){
-            button.pulsate() {
+            button.pulsate(button: button) {
                 self.updateQuestions()
                 self.addPoints()
             }
-
         }
-        
         else {
-                button.shake(){
+            button.shake(button: button){
                 self.gameOverScreen()
             }
         }
@@ -208,10 +209,32 @@ extension UIControl {
     }
 }
 
+extension UIViewController {
+
+func showToast(message : String, font: UIFont) {
+
+    let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-100, width: 210, height: 35))
+    toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+    toastLabel.textColor = UIColor.white
+    toastLabel.font = font
+    toastLabel.textAlignment = .center;
+    toastLabel.text = message
+    toastLabel.alpha = 1.0
+    toastLabel.layer.cornerRadius = 10;
+    toastLabel.clipsToBounds  =  true
+    self.view.addSubview(toastLabel)
+    UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseOut, animations: {
+         toastLabel.alpha = 0.0
+    }, completion: {(isCompleted) in
+        toastLabel.removeFromSuperview()
+    })
+ }
+}
 
 extension UIButton {
     
-    func pulsate(_ completion: @escaping ()->()) {
+    func pulsate(button:UIButton ,_ completion: @escaping ()->()) {
+        AnimationButtonColor.correct.setCorrectColor(button: button)
         let pulse = CASpringAnimation(keyPath: "transform.scale")
         pulse.duration = 1
         pulse.fromValue = 0.95
@@ -242,7 +265,8 @@ extension UIButton {
             completion()
     }
     }
-    func shake(_ completion: @escaping ()->()) {
+    func shake(button:UIButton,_ completion: @escaping ()->()) {
+        AnimationButtonColor.wrong.setCorrectColor(button: button)
         let shake = CABasicAnimation(keyPath: "position")
         shake.duration = 0.1
         shake.repeatCount = 2
