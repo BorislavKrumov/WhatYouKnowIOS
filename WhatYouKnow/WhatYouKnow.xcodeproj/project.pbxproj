@@ -22,10 +22,10 @@
 		1F585747281C132000EF2D06 /* WhatYouKnowUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F585746281C132000EF2D06 /* WhatYouKnowUITests.swift */; };
 		1F585749281C132000EF2D06 /* WhatYouKnowUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F585748281C132000EF2D06 /* WhatYouKnowUITestsLaunchTests.swift */; };
 		1F590106282704FF00AE5449 /* AnimationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F590105282704FF00AE5449 /* AnimationButton.swift */; };
+		1F59012728273D4900AE5449 /* Scores.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1F59012528273D4900AE5449 /* Scores.xcdatamodeld */; };
 		1F5CDF9D2823F8FF002D6402 /* PopupDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5CDF9C2823F8FF002D6402 /* PopupDelegate.swift */; };
 		1F5CDFA128240207002D6402 /* PublicHelp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F5CDFA028240207002D6402 /* PublicHelp.storyboard */; };
 		1F9979C9281FFDFB00DD9895 /* Network Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9979C8281FFDFA00DD9895 /* Network Service.swift */; };
-		1FDF0D73281D50E700C0B066 /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDF0D72281D50E600C0B066 /* Score.swift */; };
 		1FDF0D75281D50FA00C0B066 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDF0D74281D50FA00C0B066 /* Question.swift */; };
 /* End PBXBuildFile section */
 
@@ -66,10 +66,10 @@
 		1F585746281C132000EF2D06 /* WhatYouKnowUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatYouKnowUITests.swift; sourceTree = "<group>"; };
 		1F585748281C132000EF2D06 /* WhatYouKnowUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatYouKnowUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1F590105282704FF00AE5449 /* AnimationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationButton.swift; sourceTree = "<group>"; };
+		1F59012628273D4900AE5449 /* Scores.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Scores.xcdatamodel; sourceTree = "<group>"; };
 		1F5CDF9C2823F8FF002D6402 /* PopupDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupDelegate.swift; sourceTree = "<group>"; };
 		1F5CDFA028240207002D6402 /* PublicHelp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PublicHelp.storyboard; sourceTree = "<group>"; };
 		1F9979C8281FFDFA00DD9895 /* Network Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network Service.swift"; sourceTree = "<group>"; };
-		1FDF0D72281D50E600C0B066 /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
 		1FDF0D74281D50FA00C0B066 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -121,6 +121,7 @@
 		1F585724281C131A00EF2D06 /* WhatYouKnow */ = {
 			isa = PBXGroup;
 			children = (
+				1F590107282727CA00AE5449 /* CoreData */,
 				1F585730281C132000EF2D06 /* LaunchScreen.storyboard */,
 				1F585758281C183F00EF2D06 /* Util */,
 				1F585757281C13CF00EF2D06 /* Controller */,
@@ -151,7 +152,6 @@
 		1F585755281C13BF00EF2D06 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1FDF0D72281D50E600C0B066 /* Score.swift */,
 				1FDF0D74281D50FA00C0B066 /* Question.swift */,
 			);
 			path = Model;
@@ -190,6 +190,14 @@
 				1F590105282704FF00AE5449 /* AnimationButton.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		1F590107282727CA00AE5449 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				1F59012528273D4900AE5449 /* Scores.xcdatamodeld */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -333,9 +341,9 @@
 				1F5CDF9D2823F8FF002D6402 /* PopupDelegate.swift in Sources */,
 				1F585726281C131A00EF2D06 /* AppDelegate.swift in Sources */,
 				1F585728281C131A00EF2D06 /* SceneDelegate.swift in Sources */,
-				1FDF0D73281D50E700C0B066 /* Score.swift in Sources */,
 				1FDF0D75281D50FA00C0B066 /* Question.swift in Sources */,
 				1F2D178928232A56001846DF /* PublicHelpViewController.swift in Sources */,
+				1F59012728273D4900AE5449 /* Scores.xcdatamodeld in Sources */,
 				1F360075281C8167009A02DB /* GameOverViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -672,6 +680,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1F59012528273D4900AE5449 /* Scores.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1F59012628273D4900AE5449 /* Scores.xcdatamodel */,
+			);
+			currentVersion = 1F59012628273D4900AE5449 /* Scores.xcdatamodel */;
+			path = Scores.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1F58571A281C131A00EF2D06 /* Project object */;
 }
